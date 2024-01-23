@@ -6,8 +6,10 @@ package com.jiangtj.demovdsegf.jooq.mydatabase;
 
 import com.jiangtj.demovdsegf.jooq.mydatabase.tables.AdminUser;
 import com.jiangtj.demovdsegf.jooq.mydatabase.tables.FlywaySchemaHistory;
+import com.jiangtj.demovdsegf.jooq.mydatabase.tables.Foods;
 import com.jiangtj.demovdsegf.jooq.mydatabase.tables.records.AdminUserRecord;
 import com.jiangtj.demovdsegf.jooq.mydatabase.tables.records.FlywaySchemaHistoryRecord;
+import com.jiangtj.demovdsegf.jooq.mydatabase.tables.records.FoodsRecord;
 
 import org.jooq.TableField;
 import org.jooq.UniqueKey;
@@ -28,4 +30,5 @@ public class Keys {
 
     public static final UniqueKey<AdminUserRecord> KEY_ADMIN_USER_PRIMARY = Internal.createUniqueKey(AdminUser.ADMIN_USER, DSL.name("KEY_admin_user_PRIMARY"), new TableField[] { AdminUser.ADMIN_USER.ID }, true);
     public static final UniqueKey<FlywaySchemaHistoryRecord> KEY_FLYWAY_SCHEMA_HISTORY_PRIMARY = Internal.createUniqueKey(FlywaySchemaHistory.FLYWAY_SCHEMA_HISTORY, DSL.name("KEY_flyway_schema_history_PRIMARY"), new TableField[] { FlywaySchemaHistory.FLYWAY_SCHEMA_HISTORY.INSTALLED_RANK }, true);
+    public static final UniqueKey<FoodsRecord> KEY_FOODS_PRIMARY = Internal.createUniqueKey(Foods.FOODS, DSL.name("KEY_foods_PRIMARY"), new TableField[] { Foods.FOODS.ID }, true);
 }

@@ -6,6 +6,7 @@ package com.jiangtj.demovdsegf.jooq.mydatabase;
 
 import com.jiangtj.demovdsegf.jooq.mydatabase.tables.AdminUser;
 import com.jiangtj.demovdsegf.jooq.mydatabase.tables.FlywaySchemaHistory;
+import com.jiangtj.demovdsegf.jooq.mydatabase.tables.Foods;
 
 
 /**
@@ -23,4 +24,9 @@ public class Tables {
      * The table <code>mydatabase.flyway_schema_history</code>.
      */
     public static final FlywaySchemaHistory FLYWAY_SCHEMA_HISTORY = FlywaySchemaHistory.FLYWAY_SCHEMA_HISTORY;
+
+    /**
+     * 水果
+     */
+    public static final Foods FOODS = Foods.FOODS;
 }

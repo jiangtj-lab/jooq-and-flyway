@@ -7,6 +7,7 @@ package com.jiangtj.demovdsegf.jooq.mydatabase;
 import com.jiangtj.demovdsegf.jooq.DefaultCatalog;
 import com.jiangtj.demovdsegf.jooq.mydatabase.tables.AdminUser;
 import com.jiangtj.demovdsegf.jooq.mydatabase.tables.FlywaySchemaHistory;
+import com.jiangtj.demovdsegf.jooq.mydatabase.tables.Foods;
 
 import java.util.Arrays;
 import java.util.List;
@@ -40,6 +41,11 @@ public class Mydatabase extends SchemaImpl {
     public final FlywaySchemaHistory FLYWAY_SCHEMA_HISTORY = FlywaySchemaHistory.FLYWAY_SCHEMA_HISTORY;
 
     /**
+     * 水果
+     */
+    public final Foods FOODS = Foods.FOODS;
+
+    /**
      * No further instances allowed
      */
     private Mydatabase() {
@@ -56,7 +62,8 @@ public class Mydatabase extends SchemaImpl {
     public final List<Table<?>> getTables() {
         return Arrays.asList(
             AdminUser.ADMIN_USER,
-            FlywaySchemaHistory.FLYWAY_SCHEMA_HISTORY
+            FlywaySchemaHistory.FLYWAY_SCHEMA_HISTORY,
+            Foods.FOODS
         );
     }
 }
