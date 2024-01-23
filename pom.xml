@@ -15,6 +15,9 @@
     <description>demovdsegf</description>
     <properties>
         <java.version>21</java.version>
+        <db.url>jdbc:mysql://localhost:3313/mydatabase</db.url>
+        <db.username>myuser</db.username>
+        <db.password>secret</db.password>
     </properties>
     <dependencies>
         <dependency>
@@ -100,6 +103,43 @@
                     </excludes>
                 </configuration>
             </plugin>
+            <!--<plugin>
+                <groupId>org.jooq</groupId>
+                <artifactId>jooq-codegen-maven</artifactId>
+                <executions>
+                    <execution>
+                        <phase>generate-sources</phase>
+                        <goals>
+                            <goal>generate</goal>
+                        </goals>
+                    </execution>
+                </executions>
+                <dependencies>
+                    <dependency>
+                        <groupId>com.mysql</groupId>
+                        <artifactId>mysql-connector-j</artifactId>
+                        <version>${mysql.version}</version>
+                    </dependency>
+                </dependencies>
+                &lt;!&ndash; This is a minimal working configuration. See the manual's section about the code generator for more details &ndash;&gt;
+                <configuration>
+                    <jdbc>
+                        <url>${db.url}</url>
+                        <user>${db.username}</user>
+                        <password>${db.password}</password>
+                    </jdbc>
+                    <generator>
+                        <database>
+                            <includes>.*</includes>
+                            <inputSchema>mydatabase</inputSchema>
+                        </database>
+                        <target>
+                            <packageName>org.jooq.example.flyway.db.mysql</packageName>
+                            <directory>target/generated-sources/jooq-mysql</directory>
+                        </target>
+                    </generator>
+                </configuration>
+            </plugin>-->
         </plugins>
     </build>
 

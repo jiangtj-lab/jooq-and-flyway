@@ -1,5 +1,6 @@
 package com.jiangtj.demovdsegf;
 
+import com.zaxxer.hikari.HikariDataSource;
 import jakarta.annotation.Resource;
 import org.jooq.DSLContext;
 import org.jooq.codegen.GenerationTool;
@@ -18,10 +19,10 @@ public class GenerateTest {
 
     @Test
     public void generate() throws Exception {
-        String name = properties.getName();
-        String password = properties.getPassword();
-        String username = properties.getUsername();
         String url = properties.getUrl();
+        String username = properties.getUsername();
+        String password = properties.getPassword();
+        String schema = url.split("//")[1].split("/")[1].split("\\?")[0];
         Configuration configuration = new Configuration()
 
             // Configure the database connection here
@@ -33,7 +34,8 @@ public class GenerateTest {
             )
             .withGenerator(new Generator()
                 .withDatabase(new Database()
-                    .withInputSchema(name)
+                    .withIncludes(".*")
+                    .withInputSchema(schema)
                 )
                 .withTarget(new Target()
                     .withPackageName("com.jiangtj.demovdsegf.jooq")

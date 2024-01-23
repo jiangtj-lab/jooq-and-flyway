@@ -8,7 +8,6 @@ import org.springframework.web.bind.annotation.RestController;
 
 import java.util.List;
 
-import static com.jiangtj.demovdsegf.jooq.mydatabase.Tables.ADMIN_USER;
 import static org.jooq.impl.DSL.field;
 import static org.jooq.impl.DSL.table;
 
@@ -28,7 +27,7 @@ public class TestC {
         return sql;
     }
 
-    @GetMapping("b")
+    /*@GetMapping("b")
     public String b(){
         Query query = create.select(ADMIN_USER.ID, ADMIN_USER.USERNAME)
             .from(ADMIN_USER)
@@ -36,6 +35,6 @@ public class TestC {
         String sql = query.getSQL();
         List<Object> bindValues = query.getBindValues();
         return sql;
-    }
+    }*/
 
 }
