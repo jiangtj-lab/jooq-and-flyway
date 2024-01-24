@@ -1,13 +1,17 @@
 package com.jiangtj.demovdsegf;
 
+import com.jiangtj.demovdsegf.jooq.tables.pojos.AdminUser;
+import com.jiangtj.demovdsegf.jooq.tables.records.AdminUserRecord;
 import jakarta.annotation.Resource;
 import org.jooq.DSLContext;
 import org.jooq.Query;
+import org.jooq.Record1;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RestController;
 
 import java.util.List;
 
+import static com.jiangtj.demovdsegf.jooq.Tables.ADMIN_USER;
 import static org.jooq.impl.DSL.field;
 import static org.jooq.impl.DSL.table;
 
@@ -27,14 +31,14 @@ public class TestC {
         return sql;
     }
 
-    /*@GetMapping("b")
-    public String b(){
-        Query query = create.select(ADMIN_USER.ID, ADMIN_USER.USERNAME)
+    @GetMapping("b")
+    public AdminUser b(){
+        AdminUser record1 = create.select(ADMIN_USER)
             .from(ADMIN_USER)
-            .where(ADMIN_USER.ID.eq(1L));
-        String sql = query.getSQL();
-        List<Object> bindValues = query.getBindValues();
-        return sql;
-    }*/
+            .where(ADMIN_USER.ID.eq(1L))
+            .fetchOne()
+            .into(AdminUser.class);
+        return record1;
+    }
 
 }

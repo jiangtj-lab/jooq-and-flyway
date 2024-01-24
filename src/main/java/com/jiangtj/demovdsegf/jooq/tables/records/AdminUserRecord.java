@@ -292,4 +292,21 @@ public class AdminUserRecord extends UpdatableRecordImpl<AdminUserRecord> implem
         setIsDeleted(isDeleted);
         resetChangedOnNotNull();
     }
+
+    /**
+     * Create a detached, initialised AdminUserRecord
+     */
+    public AdminUserRecord(com.jiangtj.demovdsegf.jooq.tables.pojos.AdminUser value) {
+        super(AdminUser.ADMIN_USER);
+
+        if (value != null) {
+            setId(value.id());
+            setCreateTime(value.createTime());
+            setModifyTime(value.modifyTime());
+            setUsername(value.username());
+            setPassword(value.password());
+            setIsDeleted(value.isDeleted());
+            resetChangedOnNotNull();
+        }
+    }
 }

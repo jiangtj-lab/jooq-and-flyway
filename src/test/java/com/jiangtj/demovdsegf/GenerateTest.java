@@ -33,14 +33,41 @@ public class GenerateTest {
                 .withPassword(password)
             )
             .withGenerator(new Generator()
-                .withDatabase(new Database()
-                    .withIncludes(".*")
-                    .withInputSchema(schema)
-                )
-                .withTarget(new Target()
-                    .withPackageName("com.jiangtj.demovdsegf.jooq")
-                    .withDirectory("src/main/java")
-                )
+                    .withDatabase(new Database()
+                        .withIncludes(".*")
+                        .withInputSchema(schema)
+                    )
+                    .withTarget(new Target()
+                        .withPackageName("com.jiangtj.demovdsegf.jooq")
+                        .withDirectory("src/main/java")
+                    )
+                    .withGenerate(new Generate()
+
+                            // Possible values for generatedAnnotationType
+                            // - DETECT_FROM_JDK
+                            // - JAVAX_ANNOTATION_GENERATED
+                            // - JAVAX_ANNOTATION_PROCESSING_GENERATED
+                            // - ORG_JOOQ_GENERATED
+//                    .withGeneratedAnnotation(true)
+//                    .withGeneratedAnnotationType(GeneratedAnnotationType.DETECT_FROM_JDK)
+//                    .withGeneratedAnnotationDate(true)
+//                    .withGeneratedAnnotationJooqVersion(true)
+//                    .withNullableAnnotation(true)
+//                    .withNullableAnnotationType("javax.annotation.Nullable")
+//                    .withNonnullAnnotation(true)
+//                    .withNonnullAnnotationType("javax.annotation.Nonnull")
+//                    .withJpaAnnotations(true)
+//                    .withJpaVersion("2.2")
+//                    .withValidationAnnotations(true)
+//
+//                    .withKotlinSetterJvmNameAnnotationsOnIsPrefix(true)
+//                    .withConstructorPropertiesAnnotation(true)
+//                    .withConstructorPropertiesAnnotationOnPojos(true)
+//                    .withConstructorPropertiesAnnotationOnRecords(true)
+
+                            .withPojos(true)
+                            .withPojosAsJavaRecordClasses(true)
+                    )
             );
 
         GenerationTool.generate(configuration);

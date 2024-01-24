@@ -440,4 +440,25 @@ public class FlywaySchemaHistoryRecord extends UpdatableRecordImpl<FlywaySchemaH
         setSuccess(success);
         resetChangedOnNotNull();
     }
+
+    /**
+     * Create a detached, initialised FlywaySchemaHistoryRecord
+     */
+    public FlywaySchemaHistoryRecord(com.jiangtj.demovdsegf.jooq.tables.pojos.FlywaySchemaHistory value) {
+        super(FlywaySchemaHistory.FLYWAY_SCHEMA_HISTORY);
+
+        if (value != null) {
+            setInstalledRank(value.installedRank());
+            setVersion(value.version());
+            setDescription(value.description());
+            setType(value.type());
+            setScript(value.script());
+            setChecksum(value.checksum());
+            setInstalledBy(value.installedBy());
+            setInstalledOn(value.installedOn());
+            setExecutionTime(value.executionTime());
+            setSuccess(value.success());
+            resetChangedOnNotNull();
+        }
+    }
 }

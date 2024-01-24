@@ -292,4 +292,21 @@ public class FoodsRecord extends UpdatableRecordImpl<FoodsRecord> implements Rec
         setIsDeleted(isDeleted);
         resetChangedOnNotNull();
     }
+
+    /**
+     * Create a detached, initialised FoodsRecord
+     */
+    public FoodsRecord(com.jiangtj.demovdsegf.jooq.tables.pojos.Foods value) {
+        super(Foods.FOODS);
+
+        if (value != null) {
+            setId(value.id());
+            setCreateTime(value.createTime());
+            setModifyTime(value.modifyTime());
+            setName(value.name());
+            setPrice(value.price());
+            setIsDeleted(value.isDeleted());
+            resetChangedOnNotNull();
+        }
+    }
 }
