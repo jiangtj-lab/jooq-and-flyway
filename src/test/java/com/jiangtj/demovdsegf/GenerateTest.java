@@ -25,29 +25,29 @@ public class GenerateTest {
         String schema = url.split("//")[1].split("/")[1].split("\\?")[0];
         Configuration configuration = new Configuration()
 
-            // Configure the database connection here
-            .withJdbc(new Jdbc()
-                .withDriver(properties.getDriverClassName())
-                .withUrl(url)
-                .withUser(username)
-                .withPassword(password)
-            )
-            .withGenerator(new Generator()
-                    .withDatabase(new Database()
-                        .withIncludes(".*")
-                        .withInputSchema(schema)
-                    )
-                    .withTarget(new Target()
-                        .withPackageName("com.jiangtj.demovdsegf.jooq")
-                        .withDirectory("src/main/java")
-                    )
-                    .withGenerate(new Generate()
+                // Configure the database connection here
+                .withJdbc(new Jdbc()
+                        .withDriver(properties.getDriverClassName())
+                        .withUrl(url)
+                        .withUser(username)
+                        .withPassword(password)
+                )
+                .withGenerator(new Generator()
+                                .withDatabase(new Database()
+                                        .withIncludes(".*")
+                                        .withInputSchema(schema)
+                                )
+                                .withTarget(new Target()
+                                        .withPackageName("com.jiangtj.demovdsegf.jooq")
+                                        .withDirectory("src/main/java")
+                                )
+                                .withGenerate(new Generate()
 
-                            // Possible values for generatedAnnotationType
-                            // - DETECT_FROM_JDK
-                            // - JAVAX_ANNOTATION_GENERATED
-                            // - JAVAX_ANNOTATION_PROCESSING_GENERATED
-                            // - ORG_JOOQ_GENERATED
+                                                // Possible values for generatedAnnotationType
+                                                // - DETECT_FROM_JDK
+                                                // - JAVAX_ANNOTATION_GENERATED
+                                                // - JAVAX_ANNOTATION_PROCESSING_GENERATED
+                                                // - ORG_JOOQ_GENERATED
 //                    .withGeneratedAnnotation(true)
 //                    .withGeneratedAnnotationType(GeneratedAnnotationType.DETECT_FROM_JDK)
 //                    .withGeneratedAnnotationDate(true)
@@ -65,10 +65,10 @@ public class GenerateTest {
 //                    .withConstructorPropertiesAnnotationOnPojos(true)
 //                    .withConstructorPropertiesAnnotationOnRecords(true)
 
-                            .withPojos(true)
-                            .withPojosAsJavaRecordClasses(true)
-                    )
-            );
+                                                .withPojos(true)
+                                                .withPojosAsJavaRecordClasses(true)
+                                )
+                );
 
         GenerationTool.generate(configuration);
     }
