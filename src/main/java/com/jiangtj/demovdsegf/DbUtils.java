@@ -8,6 +8,7 @@ import org.springframework.data.domain.Pageable;
 import org.springframework.data.domain.Sort;
 
 import java.util.List;
+import java.util.function.Function;
 
 import static org.jooq.impl.DSL.field;
 
@@ -28,7 +29,7 @@ public interface DbUtils {
         return new PageImpl<>(list, pageable, count);
     }
 
-    private static <R extends Record> SelectLimitPercentAfterOffsetStep<Record1<R>> handlePageable(SelectConditionStep<Record1<R>> where, Pageable pageable) {
+    private static <R extends Record> SelectLimitPercentAfterOffsetStep<R> handlePageable(SelectOrderByStep<R> where, Pageable pageable) {
         Sort sort = pageable.getSort();
         if (!sort.isEmpty()) {
             List<SortField<Object>> list = sort.stream()
@@ -51,5 +52,20 @@ public interface DbUtils {
                     .limit(pageable.getPageSize());
         }
     }
+
+    /*static <R extends Record, TR extends Record> SelectConditionStep<R> conditionStep(DSLContext create, Table<TR> table, Function<SelectJoinStep<R>, SelectOrderByStep<R>> conditionFn) {
+        SelectJoinStep<Record1<Integer>> countStep = create.selectCount().from(table);
+        SelectJoinStep<Record1<TR>> listStep = create.select(table).from(table);
+        SelectOrderByStep<Record1<Integer>> apply = conditionFn.apply(countStep);
+
+        return null;
+    }
+
+    static <R extends Record> SelectOrderByStep<R> conditionStep(SelectJoinStep<R> steps, Function<SelectConditionStep<R>, SelectOrderByStep<R>> conditionFn) {
+        return conditionFn.apply(steps.where());
+    }
+    static <R extends Record> SelectOrderByStep<R> conditionStep(SelectConditionStep<R> steps, Function<SelectConditionStep<R>, SelectOrderByStep<R>> conditionFn) {
+        return conditionFn.apply(steps);
+    }*/
 
 }

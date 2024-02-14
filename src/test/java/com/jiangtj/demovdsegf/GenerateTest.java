@@ -16,6 +16,8 @@ public class GenerateTest {
     DSLContext context;
     @Resource
     DataSourceProperties properties;
+    @Resource
+    org.jooq.Configuration configuration;
 
     @Test
     public void generate() throws Exception {
