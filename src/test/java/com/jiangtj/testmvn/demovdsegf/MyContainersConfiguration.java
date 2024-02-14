@@ -1,4 +1,4 @@
-package com.jiangtj.demovdsegf;
+package com.jiangtj.testmvn.demovdsegf;
 
 import org.springframework.boot.test.context.TestConfiguration;
 

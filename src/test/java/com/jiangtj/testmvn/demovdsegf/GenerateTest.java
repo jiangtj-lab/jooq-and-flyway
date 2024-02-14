@@ -1,4 +1,4 @@
-package com.jiangtj.demovdsegf;
+package com.jiangtj.testmvn.demovdsegf;
 
 import com.zaxxer.hikari.HikariDataSource;
 import jakarta.annotation.Resource;

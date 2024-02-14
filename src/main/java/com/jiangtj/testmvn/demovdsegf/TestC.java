@@ -1,7 +1,7 @@
-package com.jiangtj.demovdsegf;
+package com.jiangtj.testmvn.demovdsegf;
 
-import com.jiangtj.demovdsegf.jooq.tables.pojos.AdminUser;
-import com.jiangtj.demovdsegf.jooq.tables.records.AdminUserRecord;
+import com.jiangtj.testmvn.demovdsegf.jooq.tables.pojos.AdminUser;
+import com.jiangtj.testmvn.demovdsegf.jooq.tables.records.AdminUserRecord;
 import jakarta.annotation.Resource;
 import org.jooq.*;
 import org.springframework.data.domain.Page;
@@ -12,7 +12,7 @@ import org.springframework.web.bind.annotation.RestController;
 
 import java.util.List;
 
-import static com.jiangtj.demovdsegf.jooq.Tables.ADMIN_USER;
+import static com.jiangtj.testmvn.demovdsegf.jooq.Tables.ADMIN_USER;
 import static org.jooq.impl.DSL.field;
 import static org.jooq.impl.DSL.table;
 

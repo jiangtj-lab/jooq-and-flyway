@@ -1,8 +1,5 @@
-package com.jiangtj.demovdsegf;
+package com.jiangtj.testmvn.demovdsegf;
 
-import jakarta.annotation.Resource;
-import org.jooq.DSLContext;
-import org.jooq.Query;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 

@@ -1,4 +1,4 @@
-package com.jiangtj.demovdsegf;
+package com.jiangtj.testmvn.demovdsegf;
 
 import org.jooq.Record;
 import org.jooq.*;
