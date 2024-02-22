@@ -1,5 +1,6 @@
 package com.jiangtj.testmvn.demovdsegf;
 
+import com.jiangtj.platform.sql.jooq.PageUtils;
 import com.jiangtj.testmvn.demovdsegf.jooq.tables.pojos.AdminUser;
 import com.jiangtj.testmvn.demovdsegf.jooq.tables.records.AdminUserRecord;
 import jakarta.annotation.Resource;
@@ -13,8 +14,7 @@ import org.springframework.web.bind.annotation.RestController;
 import java.util.List;
 
 import static com.jiangtj.testmvn.demovdsegf.jooq.Tables.ADMIN_USER;
-import static org.jooq.impl.DSL.field;
-import static org.jooq.impl.DSL.table;
+import static org.jooq.impl.DSL.*;
 
 @RestController
 public class TestC {
@@ -53,6 +53,14 @@ public class TestC {
     @GetMapping("d")
     public Page<AdminUser> d(@PageableDefault Pageable pageable) {
         return DbUtils.selectPage(create, ADMIN_USER, AdminUser.class, pageable, ADMIN_USER.ID.eq(1L));
+    }
+
+    @GetMapping("f")
+    public Page<AdminUser> d(AdminUser user, @PageableDefault Pageable pageable) {
+        return PageUtils.selectFrom(create, ADMIN_USER)
+            .conditions(condition(new AdminUserRecord(user)))
+            .pageable(pageable)
+            .fetchPage(AdminUser.class);
     }
 
 }

@@ -5,10 +5,12 @@ import jakarta.annotation.Resource;
 import org.jooq.DSLContext;
 import org.jooq.codegen.GenerationTool;
 import org.jooq.meta.jaxb.*;
+import org.junit.jupiter.api.Disabled;
 import org.junit.jupiter.api.Test;
 import org.springframework.boot.autoconfigure.jdbc.DataSourceProperties;
 import org.springframework.boot.test.context.SpringBootTest;
 
+@Disabled
 @SpringBootTest
 public class GenerateTest {
 
